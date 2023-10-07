@@ -15,7 +15,7 @@ from ircrobots import ConnectionParams
 
 SERVERS = [("libera", "irc.libera.chat")]
 
-FIB_TIMEZONE = "Europe/Rome"
+FIB_TIMEZONE = "Etc/UTC"
 FIB_ICS = "https://f1calendar.com/download/f1-calendar_p1_p2_p3_q_gp.ics"
 
 COMMANDS = {
