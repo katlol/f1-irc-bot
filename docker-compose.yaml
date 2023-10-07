@@ -1,0 +1,7 @@
+version: '3'
+services:
+  bot:
+    image: ghcr.io/katlol/f1-irc-bot
+    build: .
+    volumes:
+      - .:/app
