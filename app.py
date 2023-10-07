@@ -19,8 +19,8 @@ FIB_TIMEZONE = "Etc/UTC"
 FIB_ICS = "https://f1calendar.com/download/f1-calendar_p1_p2_p3_q_gp.ics"
 
 COMMANDS = {
-    "n": r"^[^:]+:[^(PRIVMSG)]+ PRIVMSG #obviyus \.n$",
-    "ls": r"^[^:]+:[^(PRIVMSG)]+ PRIVMSG #obviyus \.ls$",
+    "n": r"^[^:]+:[^(PRIVMSG)]+ PRIVMSG #f1 \.n$",
+    "ls": r"^[^:]+:[^(PRIVMSG)]+ PRIVMSG #f1 \.ls$",
 }
 
 
@@ -82,12 +82,12 @@ class Server(BaseServer):
         print(f"{self.name} < {line.format()}")
         if line.command == "001":
             print(f"connected to {self.isupport.network}")
-            await self.send(build("JOIN", ["#obviyus"]))
+            await self.send(build("JOIN", ["#f1"]))
         for command, regex in COMMANDS.items():
             if re.match(regex, line.format()):
                 lines = await Commands().run(command)
                 for line in lines:
-                    await self.send(build("PRIVMSG", ["#obviyus", line]))
+                    await self.send(build("PRIVMSG", ["#f1", line]))
     async def line_send(self, line: Line):
         print(f"{self.name} > {line.format()}")
 
