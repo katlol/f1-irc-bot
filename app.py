@@ -43,7 +43,7 @@ class Cal:
         for event in list(calendar.timeline.now()):
             lines.append(
                 f"{event.name} ongoing, ending "
-                + human(event.end.to(FIB_TIMEZONE).timestamp, precision=2)
+                + human(event.end.to(FIB_TIMEZONE).timestamp(), precision=2)
             )
 
         for event in list(timeline)[start:]:
@@ -53,7 +53,7 @@ class Cal:
             lines.append(
                 "{0} {1}, {2}".format(
                     event.name,
-                    human(local_time.timestamp, precision=2),
+                    human(local_time.timestamp(), precision=2),
                     local_time.strftime("%d %b @ %H:%M"),
                 )
             )
